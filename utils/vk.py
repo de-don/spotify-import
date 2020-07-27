@@ -36,7 +36,6 @@ def get_audio_list(token: str, user_id: int = None) -> List[Audio]:
         offset += len(items)
 
         for item in items:
-            print(item)
             audios.append(Audio(
                 artist=item.get('artist'),
                 title=item.get('title'),
