@@ -1,0 +1,2 @@
+vk
+python-dotenv
