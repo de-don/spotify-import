@@ -1,12 +1,11 @@
 import abc
-from typing import List
 
-from models.track import Track
+from models.tracks_list import TracksList
 
 
 class AbstractProvider(abc.ABC):
     """Base class to create audio providers."""
 
     @abc.abstractmethod
-    def get_tracks(self) -> List[Track]:
+    def get_tracks(self) -> TracksList:
         """Get list of tracks."""

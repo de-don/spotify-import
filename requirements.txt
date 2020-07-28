@@ -1,3 +1,4 @@
-vk
+vk-api
 python-dotenv
 spotipy
+tqdm

@@ -1,22 +1,20 @@
 import time
-from typing import List
+
+import vk_api
 
 from models.track import Track
+from models.tracks_list import TracksList
 from providers.abstract_provider import AbstractProvider
-import vk
-
 
 
 class VkProvider(AbstractProvider):
     """Provider for tracks from vk.com"""
-    def __init__(self, access_token):
-        self.api = vk.API(
-            vk.Session(),
-            access_token=access_token,
-            v='5.50'
-        )
 
-    def get_tracks(self) -> List[Track]:
+    def __init__(self, access_token):
+        session = vk_api.VkApi(token=access_token, api_version='5.50')
+        self.api = session.get_api()
+
+    def get_tracks(self) -> TracksList:
         """Get all tracks of current user."""
         tracks = []
         offset = 0
@@ -40,4 +38,4 @@ class VkProvider(AbstractProvider):
                 ))
 
             time.sleep(0.34)
-        return tracks
+        return TracksList(tracks)
