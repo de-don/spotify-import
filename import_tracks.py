@@ -1,16 +1,12 @@
 import config
-from utils.common import Audio
+from utils.common import Track
 from utils.spotify import get_playlist_id, create_playlist, get_current_user_id, search_track, add_tracks
 
-audios = []
+tracks = []
 
 with open('tracks.txt', 'r', encoding='utf8') as file:
     for line in file.readlines():
-        artist, title = line.strip().split(' // ')
-        audios.append(Audio(
-            artist=artist,
-            title=title,
-        ))
+        tracks.append(Track.from_string(line.strip()))
 
 user_id = get_current_user_id()
 
@@ -20,13 +16,13 @@ if not playlist_id:
 
 track_ids = []
 skipped = []
-for audio in audios:
-    track_id = search_track(audio)
+for track in tracks:
+    track_id = search_track(track)
     if track_id:
         track_ids.append(track_id)
     else:
-        print("Not found", audio)
-        skipped.append(audio)
+        print("Not found", track)
+        skipped.append(track)
 
 add_tracks(user_id, playlist_id, track_ids)
 print("added", len(track_ids))

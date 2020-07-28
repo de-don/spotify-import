@@ -1,8 +1,10 @@
 import config
-from utils.vk import get_audio_list
 
-audios = get_audio_list(config.vk_token)
+from providers.vk_audio_provider import VkProvider
+
+provider = VkProvider(config.vk_token)
+tracks = provider.get_tracks()
 
 with open('tracks.txt', 'w+', encoding='utf8') as file:
-    for artist, title in audios:
-        file.write(f'{artist} // {title}\n')
+    for track in tracks:
+        file.write(track.to_string() + '\n')

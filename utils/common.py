@@ -1,9 +1,6 @@
 import math
 import re
-from collections import namedtuple
 from typing import List
-
-Audio = namedtuple('Audio', 'artist title')
 
 
 def clear_string(text: str) -> str:

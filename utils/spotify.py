@@ -3,7 +3,8 @@ from typing import Optional, List
 import spotipy
 from spotipy import SpotifyImplicitGrant
 
-from utils.common import Audio, clear_string, chunk
+from models.track import Track
+from utils.common import clear_string, chunk
 
 scope = ','.join([
     'user-read-email',
@@ -56,7 +57,7 @@ def create_playlist(user_id: str, name: str) -> str:
     return response.get('id')
 
 
-def search_track(track: Audio) -> Optional[str]:
+def search_track(track: Track) -> Optional[str]:
     queries = [
         # original artist + original title
         track.artist + ' ' + track.title,
