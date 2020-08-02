@@ -1,4 +1,5 @@
 vk-api
-python-dotenv
 spotipy
 tqdm
+PyInquirer
+prompt_toolkit==1.0.14

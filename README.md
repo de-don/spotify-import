@@ -1,19 +1,29 @@
-# Install requirements
-To install nessesary requirements, run next command:
-```
-pip install -r requirements.txt
-```
+# Spotify-Migrate
 
-# Fetch tracks from VK.com:
-Set `access_token` in `./config.py` and run the command:
-```
-python3 ./get_vk_tracks.py
-```
-It will create the file `tracks.txt` with information about our tracks.
+This is a tool for migrating from different music services to Spotify.
 
-# Import tracks to Spotify:
-Run the command:
-```
-python3 ./import_tracks.py
-```
-After authentication, it will import all tracks from the file `tracks.txt` to your playlist.
+The tool allows you to export the track list from services such as:
+* vk.com
+* Yandex Music (a function in development)
+* Google Music (a function in development)
+
+# Usage
+
+The process is as follows:
+1) Export tracks from the selected service to a file.
+2) *Optional*. Check the file, correct errors, and delete unnecessary characters.
+3) Import tracks from a file to a Spotify.
+
+
+To use migrate-tool, do next steps:
+1) Clone the repository:
+    ```
+    git clone https://github.com/de-don/spotify-import.git
+    ```
+    or download the code by the link https://github.com/de-don/spotify-import/archive/master.zip
+2) Install Python3 https://www.python.org/downloads/
+
+3) Run the tool in command line:
+    ```
+    python3 ./cli.py
+    ```
