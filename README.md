@@ -18,9 +18,9 @@ The process is as follows:
 To use migrate-tool, do next steps:
 1) Clone the repository:
     ```
-    git clone https://github.com/de-don/spotify-import.git
+    git clone https://github.com/de-don/spotify-migrate.git
     ```
-    or download the code by the link https://github.com/de-don/spotify-import/archive/master.zip
+    or download the code by the link https://github.com/de-don/spotify-migrate/archive/master.zip
 2) Install Python3 https://www.python.org/downloads/
 
 3) Run the tool in command line:
