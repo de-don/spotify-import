@@ -1,5 +1,4 @@
 vk-api
-python-dotenv
 spotipy
 tqdm
 PyInquirer

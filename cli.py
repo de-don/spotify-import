@@ -71,6 +71,13 @@ questions = [
         # TODO: add file path validation
         # TODO: add file existence validation
     ),
+    dict(
+        when=is_import,
+        type='input',
+        name='playlist_name',
+        message='Enter a Spotify playlist name (new or already exists)',
+        default='Imported playlist',
+    ),
 ]
 
 if __name__ == '__main__':
@@ -79,7 +86,7 @@ if __name__ == '__main__':
     file_path = answers['file_path']
 
     if is_import(answers):
-        import_tracks(file_path)
+        import_tracks(file_path, answers['playlist_name'])
 
     if is_export(answers):
         source = answers.get('source')

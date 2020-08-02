@@ -20,7 +20,7 @@ class VkProvider(AbstractProvider):
 
         access_token = VkInteractiveTokenAuth(
             client_id=6121396,
-            scope=1073737727,
+            scope=8,
         ).get_access_token()
         session = vk_api.VkApi(token=access_token, api_version='5.50')
         self.api = session.get_api()

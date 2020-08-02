@@ -2,23 +2,22 @@ import logging
 
 from tqdm import tqdm
 
-import config
 import utils.spotify as spotify
 from models.tracks_list import TracksList
 
 logger = logging.getLogger(__name__)
 
 
-def import_tracks(file_path: str):
+def import_tracks(file_path: str, playlist_name: str):
     tracks_list = TracksList.from_file(file_path=file_path)
 
     # Get current spotify user id
     user_id = spotify.get_current_user_id()
 
     # Get playlist id (or create)
-    playlist_id = spotify.get_playlist_id(config.spotify_playlist_name)
+    playlist_id = spotify.get_playlist_id(playlist_name)
     if not playlist_id:
-        playlist_id = spotify.create_playlist(user_id, config.spotify_playlist_name)
+        playlist_id = spotify.create_playlist(user_id, playlist_name)
 
     # Find the tracks
     track_ids = []

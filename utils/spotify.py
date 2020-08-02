@@ -6,21 +6,19 @@ from spotipy import SpotifyImplicitGrant
 from models.track import Track
 from utils.common import clear_string, chunk
 
+SPOTIFY_REDIRECT_URL = 'http://localhost/'
+
 scope = ','.join([
-    'user-read-email',
-    'user-read-private',
     'playlist-read-collaborative',
     'playlist-modify-public',
     'playlist-read-private',
     'playlist-modify-private',
-    'user-library-modify',
-    'user-library-read',
 ])
 
 sp = spotipy.Spotify(
     auth_manager=SpotifyImplicitGrant(
         client_id='f7c529d9b38b465891d8ba2a95ce7b18',
-        redirect_uri='http://localhost/',
+        redirect_uri=SPOTIFY_REDIRECT_URL,
         cache_path='./.spotify-cache',
     )
 )
